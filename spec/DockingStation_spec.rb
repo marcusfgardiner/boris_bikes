@@ -4,7 +4,7 @@ require "Bike"
 describe DockingStation do
   it {is_expected.to respond_to(:release_bike)}
 
-  it {is_expected.to respond_to(:dock)}
+  it {is_expected.to respond_to(:dock).with(1).argument }
 
   it "release_bike creates a new bike object" do
     expect(subject.release_bike).to be_instance_of(Bike)
@@ -14,8 +14,9 @@ describe DockingStation do
     expect(subject.release_bike).to be_working
   end
 
-  # it "Allow a a bike to be docked" do
-  #   expect(subject.release_bike).to respond_to(:dock)
-  # end
+  it "docks a bike" do
+    bike = Bike.new
+    expect(subject.dock(bike)).to eq(bike)
+  end
 
 end
