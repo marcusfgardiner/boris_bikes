@@ -1,5 +1,5 @@
 class Bike
-  # def release_bike
-  #
-  # end
+  def working?
+    true
+  end
 end
